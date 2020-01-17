@@ -1,0 +1,27 @@
+/* Importa variáveis definidas nos estilos globais, para dar acesso as váriaveis das cores */
+
+@import "../global/variables";
+
+#content-header-right {
+
+  .content-box-right {
+    text-align: center;
+    border: 2px dashed $primary;
+    padding: 15px 5px;
+
+    .content-box-title {
+      margin: 0;
+      text-transform: initial;
+      font-size: 14px !important;
+      font-style: normal;
+      color: $primary;
+    }
+
+    .content-box-price {
+      margin: 0;
+      font-size: 24px !important;
+      color: $primary
+    }
+  }
+
+}

@@ -1,0 +1,5 @@
+README.md merge=ours
+LICENSE.md merge=ours
+.gitattributes merge=ours
+.gitignore merge=ours
+.gitlab-ci.yml merge=ours

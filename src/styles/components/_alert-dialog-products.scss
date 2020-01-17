@@ -1,0 +1,55 @@
+/* Importa variáveis definidas nos estilos globais, para dar acesso as váriaveis das cores */
+
+@import "../global/variables";
+
+#alertDialogProducts {
+    .title {
+        text-align: center; 
+        text-transform: uppercase;
+    }
+
+    .select-container {
+        text-align: center; 
+        width: 220px;
+        margin: 0 auto;
+
+        .MuiSelect-select {
+            background: none;
+        }
+    }
+
+    .buttons-container {
+        margin: 0 auto;
+        text-align: center;
+
+        .bg-primary, .bg-secondary {
+            min-width: 92px;
+        }
+
+        .bg-secondary {
+            background-color: $silver-chalice !important;
+
+            &:hover {
+                background: $medium-gray !important;
+              }
+        }
+    }
+
+    .warning {
+        margin: 25px;
+        text-align: center;
+
+        .icon-warning {
+            color: $primary;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-left: -10px;
+        }
+
+        span {
+            vertical-align: middle;
+            margin-left: 7px;
+        }
+    }
+}

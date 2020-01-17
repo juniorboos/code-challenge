@@ -1,0 +1,77 @@
+{
+  "name": "cms-fe-technical-test-v1",
+  "author": "Victor Andrade <victor.andrade@caixamagica.pt>",
+  "description": "CMS - Frontend  Technical TEST",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@babel/runtime": "^7.4.5",
+    "@date-io/moment": "^1.3.6",
+    "@material-ui/core": "^4.0.2",
+    "@material-ui/icons": "^4.0.1",
+    "@material-ui/styles": "^4.0.2",
+    "axios": "^0.19.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "bootstrap": "^4.3.1",
+    "can-use-dom": "^0.1.0",
+    "classnames": "^2.2.6",
+    "clsx": "latest",
+    "connected-react-router": "^6.4.0",
+    "cross-env": "^5.2.0",
+    "history": "^4.9.0",
+    "install": "^0.12.2",
+    "lodash": "^4.17.11",
+    "material-ui-pickers": "^2.2.4",
+    "moment": "^2.24.0",
+    "node-sass": "^4.13.0",
+    "nprogress": "^0.2.0",
+    "path": "^0.12.7",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-custom-scrollbars": "^4.2.1",
+    "react-device-detect": "^1.6.2",
+    "react-dom": "^16.8.6",
+    "react-hot-loader": "^4.9.0",
+    "react-icons": "^3.7.0",
+    "react-intl": "^2.9.0",
+    "react-notifications": "^1.4.3",
+    "react-placeholder": "^3.0.2",
+    "react-redux": "^7.0.3",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.0.1",
+    "react-select": "^3.0.8",
+    "react-virtualized": "^9.21.2",
+    "reactstrap": "^8.0.0",
+    "redux": "^4.0.1",
+    "redux-persist": "^6.0.0",
+    "redux-saga": "^1.0.2",
+    "reselect": "^4.0.0",
+    "save": "^2.4.0",
+    "url-search-params": "^1.1.0"
+  },
+  "scripts": {
+    "start": "cross-env PORT=8010  BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "postbuild": "mv build/* dist/app && rm -rf build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

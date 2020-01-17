@@ -1,0 +1,22 @@
+/* Importa variáveis definidas nos estilos globais, para dar acesso as váriaveis das cores */
+
+@import "../global/variables";
+
+#proposal-msg-loading {
+  text-align: center;
+  width: 100%;
+  height: 90px;
+
+  .loader {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  span {
+    font-size: 18px;
+    color: #000000;
+    display: inline-block;
+    text-transform: none !important;
+    vertical-align: middle;
+  }
+}
