@@ -1,10 +1,10 @@
 /**
  * @author Victor Andrade <victor.andrade@caixamagica.pt>,
  *
- * @description Examples - request API external (Examples)
+ * @description Users - request API external (users github)
  *
- * @version 20200116
- * @since 20200116 Initial release
+ * @version 20200120
+ * @since 20200120 Initial release
  *
  */
 
@@ -12,7 +12,6 @@
 import axios from 'axios';
 import {
 	CONFIG_HEADERS,
-	URL_EXAMPLES,
 } from '../constants/Endpoints'
 
 const CancelToken = axios.CancelToken;
@@ -25,9 +24,9 @@ let cancel;
  * @param payload
  * @returns {Promise<AxiosResponse<T>>}
  */
-export const getExamples = (payload) => {
+export const getUsers = (payload) => {
 	cancel && cancel();
-	return axios.get(URL_EXAMPLES +payload.ID, {
+	return axios.get('https://api.github.com/search/users?q=c', {
 		cancelToken: new CancelToken(function executor(c) {
 			cancel = c;
 		}),

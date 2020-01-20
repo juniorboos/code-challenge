@@ -41,7 +41,7 @@ const persistConfig = {
   storage,
   blacklist: [
       'settings',
-      'router',
+      'router'
   ]
 };
 

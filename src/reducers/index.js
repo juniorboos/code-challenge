@@ -12,9 +12,11 @@
 import {combineReducers} from 'redux';
 import {connectRouter} from 'connected-react-router';
 import Settings from './Settings';
+import Users from './Users';
 
 
 export default (history) => combineReducers({
   router: connectRouter(history),
-  settings: Settings
+  settings: Settings,
+  users: Users
 });

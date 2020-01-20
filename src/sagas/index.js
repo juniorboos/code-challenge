@@ -11,10 +11,10 @@
 
 
 import {all} from 'redux-saga/effects';
-import utils from './Utils';
+import users from './Users';
 
 export default function* rootSaga(getState) {
     yield all([
-        utils()
+        users()
     ]);
 }
