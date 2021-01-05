@@ -21,29 +21,25 @@ const data = [
   createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-function BasicTable() {
+function BasicTable({items, onSelect}) {
 
   return (
     <div className="table-responsive-material">
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat (g)</TableCell>
-            <TableCell align="right">Carbs (g)</TableCell>
-            <TableCell align="right">Protein (g)</TableCell>
+            <TableCell>ID</TableCell>
+            <TableCell align="right">Login</TableCell>
+            <TableCell align="right">URL</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map(n => {
+          {items.map(item => {
             return (
-              <TableRow key={n.id}>
-                <TableCell>{n.name}</TableCell>
-                <TableCell align="right">{n.calories}</TableCell>
-                <TableCell align="right">{n.fat}</TableCell>
-                <TableCell align="right">{n.carbs}</TableCell>
-                <TableCell align="right">{n.protein}</TableCell>
+              <TableRow key={item.id} onClick={() => onSelect(item)}>
+                <TableCell>{item.id}</TableCell>
+                <TableCell align="right">{item.login}</TableCell>
+                <TableCell align="right">{item.url}</TableCell>
               </TableRow>
             );
           })}

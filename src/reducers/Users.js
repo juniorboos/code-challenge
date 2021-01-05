@@ -13,7 +13,9 @@ import {
 	INITIAL_USERS,
 	REQUEST_GET_USERS,
 	REQUEST_GET_USERS_SUCCESS,
-	REQUEST_GET_USERS_FAIL
+	REQUEST_GET_USERS_FAIL,
+	SELECT_USER,
+	DELETE_USER
 } from "../constants/Users";
 
 
@@ -33,11 +35,20 @@ const Users = (state = INITIAL_USERS, action) => {
 				loading: false,
 			};
 		case REQUEST_GET_USERS_FAIL:
-
 			return {
 				...state,
 				loading: false,
 			};
+		case SELECT_USER:
+			return {
+				...state,
+				selected: action.payload,
+			};
+		case DELETE_USER:
+			return {
+				...state,
+				
+			}
 		default:
 			return state;
 	}
