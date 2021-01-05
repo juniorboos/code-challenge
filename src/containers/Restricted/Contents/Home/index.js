@@ -37,8 +37,6 @@ const Home = (props) => {
 
     const {users, selected} = props;
 
-    const [userSelected, setUserSelected] = useState(null)
-
     //request get list user
     useEffect(() => {//willMountComponentWithUseEffect
         if (!users) props.requestGetUsers();
@@ -48,8 +46,6 @@ const Home = (props) => {
     function select (user) {
         console.log("Click")
         props.selectUser(user)
-
-        // setUserSelected(users.selected)
     }
 
     return (
@@ -57,12 +53,8 @@ const Home = (props) => {
             <div className="app-wrapper">
                 {/* <IntlMessages id={'text.welcome'}/> */}
                 <h2>User selected: {selected && selected.login}</h2>
-                {/* <BasicTable items={users} onSelect={select} /> */}
-                <ul>
-                    {users.map((item) => (
-                        <li onClick={() => select(item)} key={item.id}>{item.login}</li>
-                    ))}
-                </ul>
+                <BasicTable items={users} onSelect={select} />
+                
             </div>
         </div>
 
@@ -72,7 +64,6 @@ const Home = (props) => {
 
 
 const mapStateToProps = state => {
-    console.log(state)
     return {
         users: getUsers(state.users),
         selected: getSelectedUser(state.users)

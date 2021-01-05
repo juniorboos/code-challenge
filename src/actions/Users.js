@@ -11,7 +11,7 @@
 import {
 	REQUEST_GET_USERS,
 	REQUEST_GET_USERS_SUCCESS, REQUEST_GET_USERS_FAIL,
-	SELECT_USER,
+	REQUEST_SELECT_USER,
 	DELETE_USER,
 } from '../constants/Users';
 
@@ -39,7 +39,7 @@ export function requestGetUsersFail(payload){
 
 export function selectUser(payload) {
 	return {
-		type: SELECT_USER,
+		type: REQUEST_SELECT_USER,
 		payload: payload
 	}
 }

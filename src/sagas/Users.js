@@ -15,11 +15,10 @@ import {all, call, put, takeLatest} from 'redux-saga/effects';
 import {
 	requestGetUsersFail,
 	requestGetUsersSuccess,
-	selectUser
 } from "../actions/Users";
 
 //constants
-import {REQUEST_GET_USERS, SELECT_USER} from '../constants/Users';
+import {REQUEST_GET_USERS} from '../constants/Users';
 //api
 import {getUsers} from "../api/github";
 
@@ -60,21 +59,8 @@ function* _handlerGetUsers({payload}) {
 	}
 }
 
-/**
- *
- * @param payload
- * @returns {IterableIterator<<"PUT", PutEffectDescriptor<{payload: *, type: *}>>|<"CALL", CallEffectDescriptor>>}
- * @private
- */
-function* _handlerSelectUser({payload}) {
-	console.log('Payload:')
-	console.log(payload)
-	yield put(selectUser(payload));
-}
-
 export default function* rootSaga() {
 	yield all([
 		takeLatest(REQUEST_GET_USERS, _handlerGetUsers),
-		takeLatest(SELECT_USER, _handlerSelectUser)
 	]);
 }

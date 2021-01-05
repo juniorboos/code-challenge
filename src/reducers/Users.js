@@ -14,7 +14,8 @@ import {
 	REQUEST_GET_USERS,
 	REQUEST_GET_USERS_SUCCESS,
 	REQUEST_GET_USERS_FAIL,
-	SELECT_USER,
+	REQUEST_SELECT_USER,
+	REQUEST_SELECT_USER_SUCCESS,
 	DELETE_USER
 } from "../constants/Users";
 
@@ -39,7 +40,8 @@ const Users = (state = INITIAL_USERS, action) => {
 				...state,
 				loading: false,
 			};
-		case SELECT_USER:
+		case REQUEST_SELECT_USER:
+			console.log(action.payload)
 			return {
 				...state,
 				selected: action.payload,
