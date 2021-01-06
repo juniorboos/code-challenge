@@ -20,7 +20,7 @@ import {
 //constants
 import {REQUEST_GET_USERS} from '../constants/Users';
 //api
-import {getUsers} from "../api/github";
+import {getUsers, getMoreUsers} from "../api/github";
 
 
 
@@ -62,5 +62,6 @@ function* _handlerGetUsers({payload}) {
 export default function* rootSaga() {
 	yield all([
 		takeLatest(REQUEST_GET_USERS, _handlerGetUsers),
+		// takeLatest(REQUEST_GET_MORE_USERS, _handlerGetMoreUsers),
 	]);
 }

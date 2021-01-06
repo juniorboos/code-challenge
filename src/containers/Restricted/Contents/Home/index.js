@@ -36,11 +36,18 @@ import {
 const Home = (props) => {
 
     const {users, selected} = props;
+    const [pageCount, setPageCount] = useState(1)
+
+    const parameters = {
+        page: pageCount,
+        numItems: 20
+    }
 
     //request get list user
     useEffect(() => {//willMountComponentWithUseEffect
-        if (!users) props.requestGetUsers();
-
+        if (!users) props.requestGetUsers(parameters);
+        setPageCount(pageCount + 1)
+        
     }, []); //eslint-disable-line
 
     function select (user) {
@@ -53,14 +60,20 @@ const Home = (props) => {
         props.deleteUser()
     }
 
+    function getMoreUsers() {
+        props.requestGetUsers(parameters);
+        setPageCount(pageCount + 1)
+    }
+
     return (
         <div className="app-body">
             <div className="app-wrapper">
                 {/* <IntlMessages id={'text.welcome'}/> */}
                 <h2>User selected: {selected && selected.login}</h2>
                 <button onClick={() => deleteUser()}>Delete</button>
-                <BasicTable items={users} onSelect={select} />
-                
+                {users&&<BasicTable items={users} onSelect={select} />}
+
+                <button onClick={() => getMoreUsers()}>Get More</button>                
             </div>
         </div>
 

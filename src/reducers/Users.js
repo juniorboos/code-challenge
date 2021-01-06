@@ -30,9 +30,17 @@ const Users = (state = INITIAL_USERS, action) => {
 				loading: true,
 			};
 		case REQUEST_GET_USERS_SUCCESS:
+			// console.log('New: ', action.payload.data.items)
+			// console.log('Exists: ', state.users ? state.users.includes(action.payload.data.items[0]) : false)
+			// const newUsers = state.users ? action.payload.data.items.filter((el) => !state.users.includes(el)) : action.payload.data.items 
+			// const usersList = state.users ? [...state.users, ...newUsers] : newUsers
+			const usersList = state.users ? [...state.users, ...action.payload.data.items] : action.payload.data.items
+			// console.log('New2: ', newUsers)
+			console.log(usersList)
+
 			return {
 				...state,
-				users : action.payload.data.items,
+				users : usersList,
 				loading: false,
 			};
 		case REQUEST_GET_USERS_FAIL:
@@ -47,7 +55,7 @@ const Users = (state = INITIAL_USERS, action) => {
 				selected: action.payload,
 			};
 		case DELETE_USER:
-			let users = state.users.filter(function( user ) {
+			const users = state.users.filter(function( user ) {
 				return user.id !== state.selected.id;
 		  });
 			return {
