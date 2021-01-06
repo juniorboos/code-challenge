@@ -47,9 +47,13 @@ const Users = (state = INITIAL_USERS, action) => {
 				selected: action.payload,
 			};
 		case DELETE_USER:
+			let users = state.users.filter(function( user ) {
+				return user.id !== state.selected.id;
+		  });
 			return {
 				...state,
-				
+				selected: null,
+				users: users
 			}
 		default:
 			return state;

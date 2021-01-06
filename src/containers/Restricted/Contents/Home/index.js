@@ -48,11 +48,17 @@ const Home = (props) => {
         props.selectUser(user)
     }
 
+    function deleteUser () {
+        console.log("Deleting")
+        props.deleteUser()
+    }
+
     return (
         <div className="app-body">
             <div className="app-wrapper">
                 {/* <IntlMessages id={'text.welcome'}/> */}
                 <h2>User selected: {selected && selected.login}</h2>
+                <button onClick={() => deleteUser()}>Delete</button>
                 <BasicTable items={users} onSelect={select} />
                 
             </div>
