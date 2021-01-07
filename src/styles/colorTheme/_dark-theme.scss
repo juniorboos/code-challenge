@@ -22,6 +22,7 @@ body.dark-theme {
     color: $dark-theme-text;
   }
 
+  & .app-body,
   & .card,
   & .jr-card,
   & .page-heading {
@@ -108,7 +109,7 @@ body.dark-theme {
 //Secondary
 .dark-theme {
   .jr-link.text-secondary {
-    color: $secondary-dark-theme;
+    color: $dark-theme-text;
     &:focus,
     &:hover {
       color: darken($secondary-dark-theme, 10%) !important;
@@ -116,7 +117,7 @@ body.dark-theme {
   }
 
   & .text-secondary {
-    color: $secondary-dark-theme !important;
+    color: $dark-theme-text !important;
   }
 
   & .bg-secondary {

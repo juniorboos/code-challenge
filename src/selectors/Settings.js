@@ -10,5 +10,6 @@
 import {createSelector} from 'reselect';
 
 export const getThemeColor = createSelector(state => state.themeColor,  themeColor => themeColor);
+export const getDarkTheme = createSelector(state => state.darkTheme,  darkTheme => darkTheme);
 export const getLocale = createSelector(state => state.locale,  locale => locale);
 export const getDrawerType = createSelector(state => state.drawerType,  drawerType => drawerType);

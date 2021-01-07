@@ -20,6 +20,7 @@ import LanguageSwitcher from '../../components/LanguageSwitcher/index';
 import Tooltip from "@material-ui/core/Tooltip";
 import PropTypes from "prop-types";
 import {BASENAME_URL} from "../../constants/Settings";
+import { Switch } from '@material-ui/core';
 
 
 /**
@@ -42,6 +43,10 @@ const Header = ({langSwitcherCard, settings})=> {
             </Link>
             <ul className="header-notifications list-inline ml-auto">
               {/*lang*/}
+              <Switch 
+                checked={settings.darkTheme}
+                onChange={langSwitcherCard.actions.handlerTheme}  
+              />
               <li className="list-inline-item user-lang">
                 <Dropdown
                     className="quick-menu"

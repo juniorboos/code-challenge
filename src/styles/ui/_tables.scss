@@ -1,5 +1,10 @@
 /*Tables Styles*/
 
+td[type=text] {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .table-header {
   padding-right: 2px !important;
   &.highlight-light {
@@ -10,6 +15,19 @@
     color: $white;
     background-color: map_get($gray, darken-2);
   }
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.row {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: map_get($cyan, base);
 }
 
 .spacer {
@@ -127,6 +145,7 @@
 .table-responsive-material {
   min-height: .01%;
   overflow-x: auto;
+  position: relative;
 }
 
 @media screen and (max-width: 767px) {

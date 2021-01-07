@@ -21,7 +21,7 @@ const App = props => {
 
     const {
         locale,
-        isDirectionRTL,
+        isDirectionRTL
     } = props;
 
     const prevProps = useRef(props);
@@ -36,7 +36,6 @@ const App = props => {
             prevProps.current.setDarkTheme();
         }
     }, []);
-
 
     let applyTheme = createMuiTheme(cyanTheme);
 

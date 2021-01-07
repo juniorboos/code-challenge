@@ -16,7 +16,8 @@ import {withRouter} from "react-router";
 import {
 	getDrawerType,
 	getLocale,
-	getThemeColor
+	getThemeColor,
+	getDarkTheme
 } from "../../../selectors/Settings";
 //Actions
 import {
@@ -46,12 +47,14 @@ const Header = (props) => {
 				},
 				actions: {
 					handlerToggle: (()=>setIsOpenLangSwitcher(!isOpenLangSwitcher)),
+					handlerTheme: props.setDarkTheme,
 					handlerSwitchLanguage: props.switchLanguage,
 				},
 				isOpen: isOpenLangSwitcher
 			}}
 			settings = {{
-				themeColor : props.themeColor
+				themeColor : props.themeColor,
+				darkTheme: props.darkTheme
 			}}
 		/>
 	);
@@ -68,7 +71,7 @@ Header.propTypes = {
 		name : PropTypes.string.isRequired,
 	}).isRequired,
 	themeColor : PropTypes.string.isRequired,
-
+	darkTheme: PropTypes.bool.isRequired
 };
 
 
@@ -77,7 +80,7 @@ const mapStateToProps = ({settings}) => {
 		drawerType: getDrawerType(settings),
 		locale: getLocale(settings),
 		themeColor: getThemeColor(settings),
-
+		darkTheme: getDarkTheme(settings)
 	}
 };
 

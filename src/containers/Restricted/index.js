@@ -9,9 +9,15 @@
  */
 
 import React from 'react';
+import {connect} from 'react-redux'
 import FooterContainer from "./Footer";
 import HeaderContainer from "../Restricted/Header";
 import HomeContainer from "../Restricted/Contents/Home";
+
+//Selectors
+import {
+	getDarkTheme
+} from "../../selectors/Settings";
 
 /**
  * @context Container to Restricted
@@ -19,10 +25,14 @@ import HomeContainer from "../Restricted/Contents/Home";
  * @returns {*}
  * @constructor
  */
-const Restricted = () => {
+const Restricted = (props) => {
+
+    const { darkTheme } = props;
+
+    let theme = darkTheme ? 'dark-theme' : 'cyan'
 
     return (
-        <main className="app-main-content-wrapper">
+        <main className={`app-main-content-wrapper ${theme}`}>
             <HeaderContainer/>
             <div className="app-main-content">
                 <HomeContainer/>
@@ -32,4 +42,11 @@ const Restricted = () => {
     );
 };
 
-export default Restricted;
+const mapStateToProps = state => {
+    return {
+        darkTheme: getDarkTheme(state.settings),
+    }
+};
+
+
+export default connect(mapStateToProps)(Restricted);

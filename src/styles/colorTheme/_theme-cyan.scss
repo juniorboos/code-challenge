@@ -5,6 +5,9 @@ $secondary-cyan: #69F0AE;
 $sidebar-cyan: rgba($app-primary-cyan, 0.25) !default;
 $sidebar-text-cyan: #868e96 !default;
 
+$text-primary: #000;
+$text-secondary: rgb(22, 22, 22);
+
 // Links
 $link-color: $sidebar-text-color;
 $link-hover-color: $app-primary;
@@ -23,7 +26,7 @@ $link-hover-color: $app-primary;
   .card-link,
   .jr-link,
   .jr-link.text-primary {
-    color: $app-primary-cyan;
+    color: $text-primary;
     &:focus,
     &:hover {
       color: darken($app-primary-cyan, 10%);
@@ -31,7 +34,7 @@ $link-hover-color: $app-primary;
   }
 
   & .text-primary {
-    color: $app-primary-cyan !important;
+    color: $text-primary !important;
   }
 
   & .page-link {
@@ -120,7 +123,7 @@ $link-hover-color: $app-primary;
 //Secondary
 .cyan {
   .jr-link.text-secondary {
-    color: $secondary-cyan;
+    color: $text-secondary;
     &:focus,
     &:hover {
       color: darken($secondary-cyan, 10%) !important;
@@ -128,13 +131,13 @@ $link-hover-color: $app-primary;
   }
 
   & .text-secondary {
-    color: $secondary-cyan !important;
+    color: $text-secondary !important;
   }
 
   & .bg-secondary,
   & .badge-secondary {
     background-color: $secondary-cyan !important;
-    color: $white !important;
+    color: $text-primary !important;
   }
 
   & .btn-secondary {

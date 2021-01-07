@@ -40,7 +40,7 @@ const persistConfig = {
   key: 'cms-fe-technical-test',
   storage,
   blacklist: [
-      'settings',
+      'settings.locale',
       'router'
   ]
 };

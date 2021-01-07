@@ -4,6 +4,12 @@ button {
   cursor: pointer;
 }
 
+.floating-right {
+  position: fixed !important;
+  bottom: $btn-padding-y-lg;
+  right: $btn-padding-x-lg;
+}
+
 .btn, .jr-btn {
   position: relative;
   min-width: 10px !important;
@@ -32,9 +38,6 @@ button {
 .jr-fab-btn,
 .btn {
   margin-bottom: 6px;
-  &:not(:last-child) {
-    margin-right: 15px;
-  }
 }
 
 .jr-fab-btn {

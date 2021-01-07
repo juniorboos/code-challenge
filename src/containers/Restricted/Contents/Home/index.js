@@ -9,7 +9,6 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import IntlMessages from "../../../../util/IntlMessages";
 import { connect } from 'react-redux';
 
 //Component
@@ -25,8 +24,10 @@ import {
 //Selectors
 import {
     getUsers,
+    getLoading,
     getSelectedUser,
 } from "../../../../selectors/Users";
+import Loading from 'components/Loading';
 
 /**
  * @context Container to Home
@@ -35,9 +36,12 @@ import {
  */
 const Home = (props) => {
 
-    const {users, selected} = props;
+    const {users, loading, selected} = props;
+
+    // Pagination counter
     const [pageCount, setPageCount] = useState(1)
 
+    // Parameters for request
     const parameters = {
         page: pageCount,
         numItems: 20
@@ -50,15 +54,6 @@ const Home = (props) => {
         
     }, []); //eslint-disable-line
 
-    function select (user) {
-        console.log("Click")
-        props.selectUser(user)
-    }
-
-    function deleteUser () {
-        console.log("Deleting")
-        props.deleteUser()
-    }
 
     function getMoreUsers() {
         props.requestGetUsers(parameters);
@@ -68,24 +63,21 @@ const Home = (props) => {
     return (
         <div className="app-body">
             <div className="app-wrapper">
-                {/* <IntlMessages id={'text.welcome'}/> */}
-                <h2>User selected: {selected && selected.login}</h2>
-                <button onClick={() => deleteUser()}>Delete</button>
-                {users&&<BasicTable items={users} onSelect={select} />}
-
-                <button onClick={() => getMoreUsers()}>Get More</button>                
+                {loading && <Loading />}
+                {users && <BasicTable items={users} selected={selected} onSelect={props.selectUser} />}   
+                <button className="btn btn-secondary" onClick={() => getMoreUsers()}>Get More</button>                
+                <button className="floating-right btn btn-danger" onClick={() => props.deleteUser()}>Delete</button>
             </div>
         </div>
-
-
     );
 };
 
 
-const mapStateToProps = state => {
+const mapStateToProps = ({users}) => {
     return {
-        users: getUsers(state.users),
-        selected: getSelectedUser(state.users)
+        users: getUsers(users),
+        loading: getLoading(users),
+        selected: getSelectedUser(users)
     }
 };
 
